@@ -55,5 +55,12 @@
     "laststart" : "Start time",
     "laststop" : "Stop time",
     "uptime" : "Uptime",
-    "error" : "Error"
+    "error" : "Error",
+    "advConnectionParams": "Advanced Connection parameters",
+    "DNA": "DNA - Destination Network Address",
+    "DA1": "DA1 - Destination Node Address",
+    "DA2": "DA2 - Destination Unit Address",
+    "SNA": "SNA - Source Network Address",
+    "SA1": "SA1 - Source Node Address",
+    "SA2": "SA2 - Source Unit Address"
 }

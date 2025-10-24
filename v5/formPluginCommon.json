@@ -23,24 +23,11 @@
           "title": "TCP"
         },
         {
-          "id": "rtu",
-          "title": "RTU"
-        },
-        {
-          "id": "rtuOverTcp",
-          "title": "$rtuOverTcp"
-        },
-        {
-          "id": "rtutcp",
-          "title": "$rtutcp"
-        },
-        {
-          "id": "ascii",
-          "title": "ASCII"
+          "id": "udp",
+          "title": "UDP"
         }
       ],
-      "default": "tcp",
-      "hide": "1==1"
+      "default": "tcp"
     },
     {
       "prop": "host",
@@ -58,120 +45,54 @@
       "hide": "!data.p1.transport.id || data.p1.transport.id == \"rtu\" || data.p1.transport.id == \"ascii\""
     },
     {
-      "prop": "connections",
-      "title": "Connections",
-      "type": "input",
-      "default": "1",
-      "hide": "1==1"
-    },
-    {
-      "prop" : "autoCom",
-      "title": "$getlistofCOMs",
+      "prop": "advConnectionParams",
+      "title": "$advConnectionParams",
       "type": "cb",
-      "hide": "!data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")",
-      "default": true
+      "default": false
     },
     {
-      "prop": "serialportman",
-      "title": "$port",
-      "type": "input",
-      "default": "/dev/ttyUSB1",
-      "hide": "data.p1.autoCom || !data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
-    },
-    {
-      "prop": "serialport",
-      "title": "$port",
-      "type": "droplist",
-      "data": "__tool.comports",
-      "hide": "!data.p1.autoCom || !data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
-    },
-
-    {
-      "prop": "baudRate",
-      "title": "$baudRate",
-      "type": "droplist",
-      "data": [
-        {
-          "id": 300,
-          "title": "300"
-        },
-        {
-          "id": 600,
-          "title": "600"
-        },
-        {
-          "id": 1200,
-          "title": "1200"
-        },
-        {
-          "id": 2400,
-          "title": "2400"
-        },
-        {
-          "id": 4800,
-          "title": "4800"
-        },
-        {
-          "id": 9600,
-          "title": "9600"
-        },
-        {
-          "id": 19200,
-          "title": "19200"
-        },
-        {
-          "id": 38400,
-          "title": "38400"
-        },
-        {
-          "id": 57600,
-          "title": "57600"
-        },
-        {
-          "id": 115200,
-          "title": "115200"
-        }
-      ],
-      "default": 9600,
-      "hide": "!data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
-    },
-    {
-      "prop": "parity",
-      "title": "$parity",
-      "type": "droplist",
-      "data": [
-        {
-          "id": "none",
-          "title": "none"
-        },
-        {
-          "id": "even",
-          "title": "even"
-        },
-        {
-          "id": "odd",
-          "title": "odd"
-        }
-      ],
-      "default": "even",
-      "hide": "!data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
-    },
-
-    {
-      "prop": "dataBits",
-      "title": "$dataBits",
-      "default": 8,
+      "prop" : "DNA",
+      "title": "$DNA",
       "type": "number",
-      "hide": "!data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
     },
-
     {
-      "prop": "stopBits",
-      "title": "$stopBits",
-      "default": 1,
+      "prop" : "DA1",
+      "title": "$DA1",
       "type": "number",
-      "hide": "!data.p1.transport.id || (data.p1.transport.id !== \"rtu\" && data.p1.transport.id !== \"ascii\")"
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
+    },
+    {
+      "prop" : "DA2",
+      "title": "$DA2",
+      "type": "number",
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
+    },
+    {
+      "prop" : "SNA",
+      "title": "$SNA",
+      "type": "number",
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
+    },
+    {
+      "prop" : "SA1",
+      "title": "$SA1",
+      "type": "number",
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
+    },
+    {
+      "prop" : "SA2",
+      "title": "$SA2",
+      "type": "number",
+      "hide": "!data.p1.advConnectionParams",
+      "default": 0
     }
+    
   ],
 
   "p2": [

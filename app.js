@@ -8,7 +8,7 @@ const Client = require('./client');
 module.exports = async function (plugin) {
   const clientArr = [];
   const params = plugin.params;
-  const connections = params.connections || 5;
+  const connections = 1;
   let channels = [];
   let polls = [];
   let maxreadtags = 0;
@@ -40,7 +40,7 @@ module.exports = async function (plugin) {
     clientArr[0].setPolls(polls);
     clientArr[0].sendNext();
   } catch (e) {
-    plugin.log("No connection", 1)
+    plugin.log("Error" + e, 1)
   }
   /*let i = 0;
    while (polls.length > 0) {

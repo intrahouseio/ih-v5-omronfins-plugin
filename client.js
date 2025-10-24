@@ -14,7 +14,7 @@ class Client {
     this.plugin = plugin;
     this.params = params;
     this.idx = idx;
-
+    this.options = {};
     this.isOpen = false;
     this.conn = {};
 
@@ -31,9 +31,23 @@ class Client {
   async connect() {
     const host = this.params.host;
     const port = Number(this.params.port);
-    const options = { timeout: 5000, max_queue: 2, protocol: 'tcp' }
-    this.clientLog('Try connect to ' + host + ':' + port);
-    this.conn = fins.FinsClient(port, host, options, true);
+    
+    const transport = this.params.transport || 'tcp';
+    const timeout = this.params.timeout;
+    const DNA = this.params.DNA || 0;
+    const DA1 = this.params.DA1 || 0;
+    const DA2 = this.params.DA2 || 0;
+    const SNA = this.params.SNA || 0;
+    const SA1 = this.params.SA1 || 0;
+    const SA2 = this.params.SA2 || 0;
+    
+   if (this.params.advConnectionParams == 1) {      
+      this.options = { timeout, max_queue: 2, protocol: transport, DNA, DA1, DA2, SNA, SA1, SA2 }
+    } else {
+      this.options = { timeout, max_queue: 2, protocol: transport }
+    }
+    this.clientLog('Try connect to ' + host + ':' + port + " with options " + util.inspect(this.options));
+    this.conn = fins.FinsClient(port, host, this.options, true);
     return new Promise((resolve, reject) => {
       const self = this;
       this.conn.on('open', function (info) {
