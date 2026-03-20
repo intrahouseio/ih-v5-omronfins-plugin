@@ -62,5 +62,6 @@
     "DA2": "DA2 - Destination Unit Address",
     "SNA": "SNA - Source Network Address",
     "SA1": "SA1 - Source Node Address",
-    "SA2": "SA2 - Source Unit Address"
+    "SA2": "SA2 - Source Unit Address",
+    "strlength": "String length"
 }

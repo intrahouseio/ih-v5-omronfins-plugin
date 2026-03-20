@@ -188,12 +188,12 @@ class Client {
       let res = await this.readCommand(item.adrclass, item.address, item.length, item.ref);
       if (res && res.buffer) {
         const data = tools.getDataFromResponse(res.buffer, item.ref);
-        data.forEach(el => {
+        /*data.forEach(el => {
           if (isNaN(el.value)) {
             el.chstatus = 1;
           }
           this.channelsChstatus[el.id] = el.chstatus;
-        });
+        });*/
 
         if (this.params.sendChanges == 1) {
           let arr = data.filter(ditem => {

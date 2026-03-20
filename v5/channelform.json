@@ -88,12 +88,30 @@
         {
           "id": "double",
           "title": "DOUBLE, 8 байт"
+        },
+        {
+          "id": "strutf8",
+          "title": "STRING UTF-8"
+        },
+        {
+          "id": "strascii",
+          "title": "STRING ASCII"
+        },
+        {
+          "id": "strasciiwin",
+          "title": "STRING ASCII WIN1251"
         }
       ],
 
       "default": "uint16"
     },
-    
+    {
+      "prop": "strlength",
+      "title": "$strlength",
+      "type": "input",
+      "default": "1",
+      "hide": "data.p2.vartype.id != 'strutf8' && data.p2.vartype.id != 'strascii' && data.p2.vartype.id != 'strasciiwin'"
+    },
     {
       "prop": "adrclass",
       "title": "$adrclass",
@@ -123,6 +141,10 @@
         {
           "id": "H",
           "title": "H"
+              },
+              {
+          "id": "A",
+          "title": "A"
               }
       ],
       "hide": "!data.prw.r && !data.prw.req",
@@ -249,10 +271,29 @@
         {
           "id": "double",
           "title": "DOUBLE, 8 bytes"
+        },
+        {
+          "id": "strutf8",
+          "title": "STRING UTF-8"
+        },
+        {
+          "id": "strascii",
+          "title": "STRING ASCII"
+        },
+        {
+          "id": "strasciiwin",
+          "title": "STRING ASCII WIN1251"
         }
       ],
       "hide": "!data.p4.diffw",
       "default": "int16"
+    },
+    {
+      "prop": "wstrlength",
+      "title": "$strlength",
+      "type": "input",
+      "default": "1",
+      "hide": "data.p4.wvartype.id != 'strutf8' || data.p4.wvartype.id != 'strascii' || data.p4.wvartype.id != 'strasciiwin'"
     },
     { "prop": "calc_out", "title": "$Devhard_Calc_Out", "type": "input" }
   ],
