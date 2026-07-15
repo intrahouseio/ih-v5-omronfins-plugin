@@ -145,6 +145,22 @@
               {
           "id": "A",
           "title": "A"
+              },
+              {
+          "id": "E0_",
+          "title": "E0"
+              },
+              {
+          "id": "E1_",
+          "title": "E1"
+              },
+              {
+          "id": "E2_",
+          "title": "E2"
+              },
+              {
+          "id": "E3_",
+          "title": "E3"
               }
       ],
       "hide": "!data.prw.r && !data.prw.req",
